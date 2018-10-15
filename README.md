@@ -10,7 +10,7 @@ This project used two containers :
 
 Both containers are linked and are on the same network. 
 
-The app folder is shared between the host and the container, so you can edit the code directly from the host.
+The express folder is shared between the host and the container, so you can edit the code directly from the host.
 
 cards.json is the dataset containing all cards, you have to import it on the database using mongoimport from the host. (By the way, the application works without, but has nothing to display ...)
 
