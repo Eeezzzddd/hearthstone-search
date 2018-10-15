@@ -17,7 +17,7 @@ services:
   web:
     build: . # Build the docker image of our node.js app
     volumes:
-      - "./app:/usr/src/app" # volume shared between host and container to modify the application
+      - "./app/express:/usr/src/app/express" # volume shared between host and container to modify the application
     ports:
       - "3000:3000"
     depends_on: # Link container between them (we can use their name as hostname and it tells to start mongo container before app container)
