@@ -1,0 +1,33 @@
+# Written by Nicolas Brun
+
+version: '3'
+
+services:
+  
+  # mongoDB container
+  mongo:
+    image: "mongo" # image used by the container
+    restart: always # restart in case of crash 
+    ports: 
+      - "27017:27017"
+    networks:
+      - "app-network1" # network of the container
+
+  # Node.js App container
+  web:
+    build: . # Build the docker image of our node.js app
+    volumes:
+      - "./app:/usr/src/app" # volume shared between host and container to modify the application
+    ports:
+      - "3000:3000"
+    depends_on: # Link container between them (we can use their name as hostname and it tells to start mongo container before app container)
+      - "mongo"
+    networks : # network of the container
+      - "app-network1"
+
+networks: # Custom network for our application
+  app-network1:
+    driver: bridge # Type of our network
+    ipam:
+      config:
+        - subnet: 170.0.0.0/24 # IPv4 subnet
