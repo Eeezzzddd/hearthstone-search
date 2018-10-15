@@ -6,13 +6,13 @@ This project is a school project to practice docker and especially docker-compos
 
 This project used two containers :
 - A container which runs a Node.js application to find hearthstone's card.
-- A MongoDB database which contains all cards data.
+- A MongoDB database which contains all cards.
 
 Both containers are linked and are on the same network. 
 
 The app folder is shared between the host and the container, so you can edit the code directly from the host.
 
-cards.json is the dataset containing all cards data, you have to import it on the database using mongoimport from the host. (By the way, the application work without, but has nothing to display ...)
+cards.json is the dataset containing all cards, you have to import it on the database using mongoimport from the host. (By the way, the application works without, but has nothing to display ...)
 
 ## Setup
 
